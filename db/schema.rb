@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_165450) do
+ActiveRecord::Schema.define(version: 2019_09_06_173033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "adresses", force: :cascade do |t|
+  create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "city"
     t.string "state"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_165450) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_adresses_on_location_id"
+    t.index ["location_id"], name: "index_addresses_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_165450) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "adresses", "locations"
+  add_foreign_key "addresses", "locations"
   add_foreign_key "locations", "trips"
   add_foreign_key "trips", "users"
 end

@@ -1,2 +1,7 @@
-<h1>Addresses#index</h1>
-<p>Find me in app/views/addresses/index.html.erb</p>
+<h1>List of Addresses to Visit at <%= @location.name %>:</h1>
+<%= link_to 'Add Address', new_location_address_path(@location) %>
+<ul>
+  <% @addresses.each do |address| %>
+    <li><%= link_to address.name, [@location, address] %></li>
+  <% end %>
+</ul>
