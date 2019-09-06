@@ -1,2 +1,11 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+<h1>Add Trip</h1>
+
+<%= form_with(model: @trip, local: true, class: "ui form" ) do |f| %>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :start_date, :end_date required: true, placeholder: "Trip Name" %>
+    </div>
+
+    <%= f.sumbit nil, class: "ui blue button inverted" %>
+<% end %>
+
