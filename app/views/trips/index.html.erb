@@ -1,18 +1,24 @@
 <h1>Trips</h1>
-<%= link_to 'Start New Trip', new_trip_path %>
+<%= link_to 'Start New Trip', new_trip_path, class: "ui green button small" %>
 <hr />
 
 <h2><%= @trips.length <= 0 ? "No Trips" : " " %></h2>
 
-<ul>
-    <% @trips.each do |trip| %>
-        <li>
-        <%= link_to trip.name, trip_locations_path(trip) %>
-        </li>
-        <%= button_to "Edit Trip", edit_trip_path(trip), class: "ui blue button small" %>
-        <%= button_to "Delete Trip", trip_path(trip), method: :delete, class: "ui red button small inverted" %>
-    <% end %> 
-</ul>
 
+<div class="ui three column grid">
+  <% @trips.each do |trip| %>
+    <div class="column">
+      <div class="ui segment">
+        <%=trip.name%>
+        <hr/>
+        <span> 
+          <%= link_to "View Trip", trip_locations_path(trip), class: "ui green button small" %>
+          <%= link_to "Edit Trip", edit_trip_path(trip), class: "ui blue button small" %>
+          <%= link_to "Delete Trip", trip_path(trip), method: :delete, class: "ui red button small inverted" %>
+        </span>
+      </div>
+    </div>
+  <% end %> 
+</div>
 
 

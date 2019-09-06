@@ -19,6 +19,10 @@ class TripsController < ApplicationController
     end
   end
 
+  def edit
+    render :template => "trips/_form"
+  end
+
   def update
     if @trip.update(trip_params)
       redirect_to trips_path
@@ -27,9 +31,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def edit
-    render :template => "trips/_form"
-  end
+
 
   def destroy
     @trip.destroy 

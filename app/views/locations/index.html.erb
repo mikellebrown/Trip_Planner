@@ -1,15 +1,25 @@
 <h1 class="ui header">Locations</h1>
-<%= link_to 'New Location', new_trip_location_path  %>
+<%= link_to 'New Location', new_trip_location_path, class:"ui green button small"  %>
   <thead>
 <hr />
-<ul>
-  <% @locations.each do |location| %>
-    <li>
-      <%= link_to location.name, location_addresses_path(location) %>
-      <%= link_to 'Edit Location', edit_trip_location_path(@trip, location)  %>
-      <%= link_to 'Delete Location', trip_location_path(@trip, location), method: :delete, class: "ui red button small"  %>
-    </li>
 
-    </li>
-<% end %>
-</ul>
+
+<div class="ui three column grid">
+  <% @locations.each do |location| %>
+    <div class="column">
+      <div class="ui segment">
+        <%= location.name %>
+        <hr/>
+        <span> 
+          <%= link_to "View Local", location_addresses_path(location), class: "ui green button small"%>
+         <%= link_to 'Edit Local', edit_trip_location_path(@trip, location), class: "ui blue button small"  %>
+         <%= link_to 'Delete Local', trip_location_path(@trip, location), method: :delete, class: "ui red button small"  %>
+        </span>
+      </div>
+    </div>
+  <% end %> 
+</div>
+
+
+<hr />
+<div><%= link_to 'Return to Trips', trips_path, class: "ui purple button small" %></div>

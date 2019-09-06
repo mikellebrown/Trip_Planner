@@ -2,6 +2,8 @@
 <%= link_to 'Add Address', new_location_address_path(@location) %>
 <ul>
   <% @addresses.each do |address| %>
-    <li><%= link_to "#{address.street}, #{address.state}", [@location, address] %></li>
+    <li><%= link_to "#{address.street}, #{address.state}", [@location, address], class: "ui inverted green button small" %></li>
   <% end %>
 </ul>
+<hr/>
+<%= link_to "Return to #{@location.name}", trip_locations_path(@location.trip_id), class: "ui purple button small" %>

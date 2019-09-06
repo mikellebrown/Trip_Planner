@@ -5,6 +5,7 @@
 <h4>Zip: <%= @address.zip %></h4>
 <br />
 <br />
-<%= link_to 'Edit address', edit_location_address_path([@location, @address], class: "ui blue button small") %> |
-<%= link_to 'Delete address', [@location, @address], method: :delete, class: "ui red button small" %> |
-<%= link_to 'Back To addresses', location_addresses_path(@location), class: "ui green button small" %>
+<%= link_to 'Edit Address', edit_location_address_path([@location, @address]), class: "ui blue button small" %> |
+<%= link_to 'Delete Address', [@location, @address], method: :delete, class: "ui red button small" %> |
+<%= link_to 'Return To Addresses', location_addresses_path(@location), class: "ui purple button small" %>
+<hr/>
