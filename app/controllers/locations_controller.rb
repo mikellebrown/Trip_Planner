@@ -11,30 +11,30 @@ class LocationsController < ApplicationController
 
   def new
     @location = @trip.locations.new
-    render template => "locations/_form"
+    render :template => "locations/_form"
 
   end
 
   def create
     @location = @trip.locations.new(location_params)
-      if location.save 
+      if @location.save 
         redirect_to trip_locations_path(@trip)
       else
-        render template => "locations/_form"
+        render :template => "locations/_form"
       end
   end
 
   def update 
     @location = @trip.locations.update(location_params)
-      if location.update
+      if @location.update
         redirect_to trip_locations_path(@trip)
       else
-        render template => "locations/_form"
+        render :template => "locations/_form"
       end
   end 
 
   def edit
-    render template => "locations/_form"
+    render :template => "locations/_form"
   end
 
   def destroy

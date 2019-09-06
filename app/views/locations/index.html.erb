@@ -1,10 +1,10 @@
 <h1>Locations</h1>
-<%= link_to 'New Location', new_trip_location_path %>
+<%= link_to 'New Location', new_trip_location_path  %>
 <hr />
 <ul>
   <% @locations.each do |location| %>
     <li>
-      <%= link_to loaction.name, user %>
+      <%= link_to location.name, location_addresses_path(location) %>
     </li>
 <% end %>
 </ul>
