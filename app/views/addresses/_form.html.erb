@@ -1,0 +1,17 @@
+<h1><%= @address.id ? 'Edit address' : 'Create address' %></h1>
+<hr />
+<%= form_with(model: [@location, @address], local: true, class: "ui form") do |f| %>
+  <%= f.label :street %>
+  <%= f.text_field :street, required: true, autofocus: true %>
+  <br />
+  <%= f.label :city %>
+  <%= f.text_field :city, required: true %>
+  <br />
+  <%= f.label :state %>
+  <%= f.text_field :state, required: true %>
+  <br />
+  <%= f.label :zip %>
+  <%= f.text_field :zip, required: true %>
+  <br />
+  <%= f.submit nil, class: "ui button" %>
+<% end %>
