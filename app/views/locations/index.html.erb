@@ -1,10 +1,15 @@
-<h1>Locations</h1>
+<h1 class="ui header">Locations</h1>
 <%= link_to 'New Location', new_trip_location_path  %>
+  <thead>
 <hr />
 <ul>
   <% @locations.each do |location| %>
     <li>
       <%= link_to location.name, location_addresses_path(location) %>
+      <%= link_to 'Edit Location', edit_trip_location_path(@trip, location)  %>
+      <%= link_to 'Delete Location', trip_location_path(@trip, location), method: :delete, class: "ui red button small"  %>
+    </li>
+
     </li>
 <% end %>
 </ul>

@@ -25,8 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def update 
-    @location = @trip.locations.update(location_params)
-      if @location.update
+      if @location.update(location_params)
         redirect_to trip_locations_path(@trip)
       else
         render :template => "locations/_form"
@@ -38,7 +37,7 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location = @trip.locations.find(params[:id])
+    
     @location.destroy
     redirect_to trip_locations_path(@trip)
   end

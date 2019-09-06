@@ -1,7 +1,7 @@
 <h1><%= @location.name %></h1>
 <hr />
 <ul>
-  <% @user.locations.each do |location| %>
+  <% @trip.locations.each do |location| %>
     <li>
       <%= link_to location.name, location %>
     </li>
