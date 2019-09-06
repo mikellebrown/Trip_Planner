@@ -1,0 +1,9 @@
+<h1><%= @location.id ? 'Edit Location' : 'Create Location' %></h1>
+<hr />
+<%= form_for @location do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <%= f.label :days %>
+  <%= f.text_field :days, required: true, autofocus: true %>
+  <%= f.submit class: "ui green button small" %>
+<% end %>
