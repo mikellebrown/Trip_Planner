@@ -1,2 +1,13 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1><%= @location.name %></h1>
+<hr />
+<ul>
+  <% @user.locations.each do |location| %>
+    <li>
+      <%= link_to location.name, location %>
+    </li>
+  <% end %>
+</ul>
+<br />
+<br />
+<br />
+<%= link_to 'Delete Location', @user, method: :delete, class: "ui red button inverted" %>
