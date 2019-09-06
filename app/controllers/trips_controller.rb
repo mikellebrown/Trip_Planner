@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
     @trips = current_user.trips
@@ -20,7 +20,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    if @trip.update(account_params)
+    if @trip.update(trip_params)
       redirect_to trips_path
     else
       render :template => "trips/_form"

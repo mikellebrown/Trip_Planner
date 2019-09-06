@@ -2,14 +2,16 @@
 <%= link_to 'Start New Trip', new_trip_path %>
 <hr />
 
-<h2<%= @trips.length <= 0 ? "No Trips" : " " %></h2>
+<h2><%= @trips.length <= 0 ? "No Trips" : " " %></h2>
 
 <ul>
     <% @trips.each do |trip| %>
         <li>
         <%= link_to trip.name, trip_locations_path(trip) %>
         </li>
-    <% end %>
+        <%= button_to "Edit Trip", edit_trip_path(trip), class: "ui blue button small" %>
+        <%= button_to "Delete Trip", trip_path(trip), method: :delete, class: "ui red button small inverted" %>
+    <% end %> 
 </ul>
 
 
