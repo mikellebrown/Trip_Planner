@@ -2,6 +2,6 @@
 <%= link_to 'Add Address', new_location_address_path(@location) %>
 <ul>
   <% @addresses.each do |address| %>
-    <li><%= link_to address.name, [@location, address] %></li>
+    <li><%= link_to "#{address.street}, #{address.state}", [@location, address] %></li>
   <% end %>
 </ul>

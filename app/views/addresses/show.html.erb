@@ -1,9 +1,10 @@
 <h1><%= @location.name %></h1>
-<h4>Name: <%= @address.name %></h4>
-<h4>Species: <%= @address.species %></h4>
-<h4>Age: <%= @address.age %></h4>
+<h4>Street: <%= @address.street %></h4>
+<h4>City: <%= @address.city %></h4>
+<h4>State: <%= @address.state %></h4>
+<h4>Zip: <%= @address.zip %></h4>
 <br />
 <br />
-<%= link_to 'Edit address', edit_location_address_path([@location, @address]) %> |
-<%= link_to 'Delete address', [@location, @address], method: :delete %> |
-<%= link_to 'Back To addresss', location_addresss_path(@location) %>
+<%= link_to 'Edit address', edit_location_address_path([@location, @address], class: "ui blue button small") %> |
+<%= link_to 'Delete address', [@location, @address], method: :delete, class: "ui red button small" %> |
+<%= link_to 'Back To addresses', location_addresses_path(@location), class: "ui green button small" %>
