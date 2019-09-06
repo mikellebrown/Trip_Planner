@@ -1,0 +1,11 @@
+<h1><%= @review.id ? 'Edit Review' : 'Create Review' %></h1>
+<hr />
+<%= form_with(model: [@trip, @review], local: true, class: "ui form") do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author, required: true %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true %>
+  <%= f.label "Review Content" %>
+  <%= f.text_area :body, required: true %>
+  <%= f.submit class: "ui green button small" %>
+<% end %>

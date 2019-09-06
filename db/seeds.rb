@@ -1,4 +1,4 @@
-User.create(email: "test@test.com", password: "password", password_confirmation: "password")
+User.create(email: "test@test.com", password: "password", password_confirmation: "password", first_name: "John", last_name: "Doe")
 10.times do 
   t = Trip.create(
     name: Faker::Address.state,
@@ -6,6 +6,7 @@ User.create(email: "test@test.com", password: "password", password_confirmation:
     end_date: Faker::Time.backward(days:23, period: :evening),
     user_id: 1
   )
+
   10.times do
     l = Location.create(
     name: Faker::Address.community,
@@ -22,6 +23,17 @@ User.create(email: "test@test.com", password: "password", password_confirmation:
       )
     end
   end
+
+  10.times do
+    Review.create(
+    author: Faker::DcComics.name,
+    body: Faker::Lorem.words(number: 25),
+    title: Faker::Lorem.words(number: 3),
+    trip_id: t.id
+    )
+  end
+
+
 end
 
 

@@ -1,6 +1,10 @@
 <h1>Trips</h1>
 <%= link_to 'Start New Trip', new_trip_path, class: "ui green button small" %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "ui red button small" %>
+<%= link_to 'View 5 Random Trips', trips_path, class: "ui purple button" %>
 <hr />
+
+<h1 class="ui header">Welcome: <%= current_user.first_name %> <%= current_user.last_name %></h1>
 
 <h2><%= @trips.length <= 0 ? "No Trips" : " " %></h2>
 
@@ -15,6 +19,10 @@
           <%= link_to "View Trip", trip_locations_path(trip), class: "ui green button small" %>
           <%= link_to "Edit Trip", edit_trip_path(trip), class: "ui blue button small" %>
           <%= link_to "Delete Trip", trip_path(trip), method: :delete, class: "ui red button small inverted" %>
+        </span>
+        <hr/>
+        <span>
+        <%= link_to 'View Reviews', trip_reviews_path(trip), class: "ui yellow button small" %>
         </span>
       </div>
     </div>

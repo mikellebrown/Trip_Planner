@@ -1,0 +1,28 @@
+<h1 class="ui header">Reviews of <%=@trip.name%></h1>
+<%= link_to 'New review', new_trip_review_path, class:"ui green button small"  %>
+  <thead>
+<hr />
+
+
+<div class="ui three column grid">
+  <% @reviews.each do |review| %>
+    <div class="column">
+      <div class="ui segment">
+        <%= review.author %>
+        <hr/>
+        <%= review.title %>
+        <hr/>
+        <%= review.body %>
+        <hr/>
+        <span> 
+         <%= link_to 'Edit', edit_trip_review_path(@trip, review), class: "ui blue button small"  %>
+         <%= link_to 'Delete', trip_review_path(@trip, review), method: :delete, class: "ui red button small"  %>
+        </span>
+      </div>
+    </div>
+  <% end %> 
+</div>
+
+
+<hr />
+<div><%= link_to 'Return to Trips', trips_path, class: "ui purple button small" %></div>
