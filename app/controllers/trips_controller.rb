@@ -5,19 +5,17 @@ class TripsController < ApplicationController
     @trips = current_user.trips
   end
 
-  def show
-  end
-
   def new
     @trip = Trip.new
+    render :template => "trips/_form"
   end
 
   def create
-    @trip = current_user.trips.new(trips_params)
+    @trip = current_user.trips.new(trip_params)
     if @trip.save
       redirect_to trips_path
     else
-      render :new
+      render :template => "trips/_form"
     end
   end
 
@@ -25,11 +23,12 @@ class TripsController < ApplicationController
     if @trip.update(account_params)
       redirect_to trips_path
     else
-      render :edit
+      render :template => "trips/_form"
     end
   end
 
   def edit
+    render :template => "trips/_form"
   end
 
   def destroy
@@ -43,7 +42,6 @@ class TripsController < ApplicationController
     end
 
     def set_trip
-      @trip = current_users.trip.find(params[:id])
+      @trip = current_user.trips.find(params[:id])
     end
 end
-
