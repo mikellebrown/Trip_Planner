@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
         redirect_to trip_locations_path(@trip)
       else
         render template => "locations/_form"
-
+      end
   end 
 
   def edit
@@ -45,15 +45,15 @@ class LocationsController < ApplicationController
 
   private 
     def set_trip
-      @trip = current_user.trips.find(params[:id])
+      @trip = current_user.trips.find(params[:trip_id])
     end
 
     def set_location 
-      @location = Location.find(params[:trip_id])
+      @location = Location.find(params[:id])
 
     end
 
     def location_params
       params.require(:location).permit(:name, :days)
-
     end
+end
